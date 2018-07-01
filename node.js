@@ -24,7 +24,7 @@ peers=[]
 
 function broadcast(data)
 {
-	console.log("Block valid.\r\nBroadcasting update:\r\n"+data);
+	console.log("Block validated.\r\nBroadcasting update:\r\n"+data);
 	var keys=Object.keys(peers);
 	for(var i=0;i<keys.length;i++)
 	{
@@ -51,7 +51,7 @@ var server = net.createServer(function(socket) {
 		}
 		index++;
 		broadcast(JSON.stringify(chain));
-		fs.writeFile("blockchain", JSON.stringify(chain), function(err) {
+		fs.writeFile("blockchain.bc", JSON.stringify(chain), function(err) {
 			if(err) {
 				return console.log(err);
 			}
